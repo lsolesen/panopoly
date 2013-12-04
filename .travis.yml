@@ -3,6 +3,11 @@ language: php
 php:
   - 5.4
 
+branches:
+  only:
+    - 7.x-1.x
+    - travis
+
 mysql:
   database: drupal
   username: root
