@@ -8,6 +8,7 @@ use Behat\Behat\Context\ClosuredContextInterface,
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
 use Drupal\DrupalExtension\Context\DrupalContext;
+use Drupal\Component\Utility\Random;
 
 //
 // Require 3rd-party libraries here:
