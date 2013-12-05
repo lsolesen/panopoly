@@ -5,10 +5,10 @@ Feature: Accessibility
 
   Scenario: Screenreader interpreting an image alt link in media field
     Given I am on homepage
-    Then I should see the image alt "Fresh Veggies So Good" in the "Content"
+    Then I should see the image alt "Fresh Veggies So Good" in the "Content" region
 
   Scenario: Screenreader interpreting an image alt link in wysiwyg field
     Given I am on homepage
     When I click "Content Demo"
-    Then I should see the image alt "Fresh Veggies So Good" in the "Content"
+    Then I should see the image alt "Fresh Veggies So Good" in the "Content" region
 

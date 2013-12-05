@@ -139,7 +139,7 @@ class FeatureContext extends DrupalContext
 
     $tmp = $element->getAttribute('alt');
     if ($alt == $tmp) {
-    	$result = $alt;
+      $result = $alt;
     }
 
     if (empty($result)) {
