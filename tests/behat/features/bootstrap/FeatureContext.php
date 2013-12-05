@@ -125,4 +125,25 @@ class FeatureContext extends DrupalContext
 
     return $argument;
   }
+
+  /**
+   * @Then /^I should see the image alt "(?P<alt>[^"]*)" in the "(?P<region>[^"]*)"(?:| region)$/
+   *
+   * @throws \Exception
+   *   If region or link within it cannot be found.
+   */
+  public function assertAltRegion($alt, $region) {
+    $regionObj = $this->getRegion($region);
+
+    $element = $regionObj->find('css', 'img');
+
+    $tmp = $element->getAttribute('alt');
+    if ($alt == $tmp) {
+    	$result = $alt;
+    }
+
+    if (empty($result)) {
+      throw new \Exception(sprintf('Could not find alt text "%s" in the "%s" region on the page %s', $alt, $region, $this->getSession()->getCurrentUrl()));
+    }
+  }
 }
