@@ -26,6 +26,5 @@ Feature: Add links widget
       And I press "Save as custom"
       And I wait for the Panels IPE to deactivate
     Then I should see "Testing link title"
-      And I should see "Testing url title"
-      And I should see the link "http://drupal.org"
+      And I should see the link "Testing url title"
 
