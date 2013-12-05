@@ -1,10 +1,10 @@
-Feature: Add text widget
-  In order to put additional text on a page (beyond the main content)
+Feature: Add map widget
+  In order to put a map on a page
   As a site administrator
-  I need to be able to add a text widget
+  I need to be able to use the map widget
  
   @api @javascript
-  Scenario: Add text to a page
+  Scenario: Add map to a page
     Given I am logged in as a user with the "administrator" role
       And Panopoly magic live previews are disabled
     When I visit "/node/add/panopoly-page"
