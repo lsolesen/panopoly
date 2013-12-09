@@ -85,6 +85,15 @@ class FeatureContext extends DrupalContext
   }
 
   /**
+   * @Given /^(?:|I )accept the alert dialog$/
+   *
+   * Accept a dialog alert
+   */
+  public function iAcceptDialog() {
+    $this->getSession()->acceptAlert();
+  }
+
+  /**
    * Override MinkContext::fixStepArgument().
    *
    * Make it possible to use [random].
