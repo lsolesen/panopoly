@@ -28,6 +28,11 @@ Feature: Add content list widget
     Then I should see "Title text test"
     Then I should see "Body text test"
     When I customize this page with the Panels IPE
+      And I click "Settings" in the "Bryant Sidebar" region  
+    Then I should see "Configure"
+      And I press "edit-return"
+      And I press "Save"      
+    When I customize this page with the Panels IPE
     When I click "Style" in the "Content" region
     # For some reason the Pane Style modal only shows ""
     Then I should see "Pane style for "
@@ -36,7 +41,7 @@ Feature: Add content list widget
       And I wait for the Panels IPE to deactivate
     Then I should see "Title text test"
     When I customize this page with the Panels IPE
-    When I click "Delete" in the "Content" region
+    When I click "Delete" in the "Bryant Sidebar" region
     When I press "OK"
     #Given I accept the alert dialog
     When I press "Save"
