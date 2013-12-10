@@ -26,6 +26,6 @@ Feature: Add content page
       And I press "Upload"
     When I fill in "Panopoly rocks" for "field_featured_image[und][0][alt]"
       And I press "Publish"
-    Then I should see the link "Edit"
-    When I click "Edit"
+    Then I should see the link "Edit" in the "Tabs" region
+    When I click "Edit" in the "Tabs" region
     Then the "field_featured_image[und][0][alt]" field should contain "Panopoly rocks"
