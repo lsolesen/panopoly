@@ -45,7 +45,8 @@ install:
   - cd ../
 
   # Download an old version to test upgrading from.
-  - if [[ "$UPGRADE" != none ]]; then (drush dl panopoly-$UPGRADE && cd panopoly-$UPGRADE && drush dl panopoly_demo); fi
+  #- if [[ "$UPGRADE" != none ]]; then (drush dl panopoly-$UPGRADE && cd panopoly-$UPGRADE && drush dl panopoly_demo); fi
+  - if [[ "$UPGRADE" != none ]]; then drush dl panopoly-$UPGRADE; fi
 
   # Setup files
   - sudo chmod -R 777 drupal/sites/all
