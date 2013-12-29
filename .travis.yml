@@ -41,7 +41,7 @@ install:
   # - cp profiles/panopoly/settings.local.php.example sites/default/settings.local.php
   - cd ../
 
-  # Download an old version to test upgrading from
+  # Download an old version to test upgrading from.
   - if [[ "$UPGRADE" != none ]]; then drush dl panopoly-$UPGRADE; fi
 
   # Setup files
@@ -65,13 +65,10 @@ before_script:
   # Do the site install (either the current revision or old for the upgrade).
   - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd panopoly-$UPGRADE; fi
   - php `pear config-get php_dir`/drush/drush.php si panopoly --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Panopoly" --yes
-  - echo $PWD
-  - ls sites/default
   - cd ../drupal
 
   # If we're an upgrade test, run the upgrade process.
-  - echo $PWD
-  - if [[ "$UPGRADE" != none ]]; then cp ../panopoly-$UPGRADE/sites/default/settings.php sites/default/; drush updb --yes; fi
+  - if [[ "$UPGRADE" != none ]]; then cp ../panopoly-$UPGRADE/sites/default/settings.php sites/default/ && drush updb --yes; fi
 
   - drush runserver --server=builtin 8888 > /dev/null 2>&1 &
   - sleep 3
