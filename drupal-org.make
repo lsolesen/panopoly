@@ -44,6 +44,8 @@ projects[panopoly_users][subdir] = panopoly
 projects[panopoly_users][download][type] = git
 projects[panopoly_users][download][revision] = c7bc02b
 projects[panopoly_users][download][branch] = 7.x-1.x
+; Temporary for testing purposes!
+projects[panopoly_users][patch][2175729] = http://drupal.org/files/issues/panopoly_users-update-2175729-1.patch
 
 ; The Panopoly Toolset
 
