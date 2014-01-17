@@ -31,6 +31,7 @@ class FeatureContext extends DrupalContext
   public function __construct(array $parameters) {
     // Initialize your context here
     $this->useContext('panels', new PanelsSubContext());
+    $this->useContext('media', new MediaSubContext());
   }
 
 //
