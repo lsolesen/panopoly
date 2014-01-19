@@ -30,7 +30,7 @@ Feature: Add submenu widget
     Then I should see "Submenu title"
       And I should see "Vegetables are great"
     When I customize this page with the Panels IPE
-      And I click "Settings"
+      And I click "Settings" in the "Boxton Content" region
     # TODO We need to add some logic which tests whether it is possible to
     #      change the checkboxes after hitting save 
       
