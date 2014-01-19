@@ -29,8 +29,18 @@ Feature: Add submenu widget
       And I wait for the Panels IPE to deactivate
     Then I should see "Submenu title"
       And I should see "Vegetables are great"
+    # Attempt to change the checkboxes after saving originally
     When I customize this page with the Panels IPE
       And I click "Settings" in the "Boxton Content" region
-    # TODO We need to add some logic which tests whether it is possible to
-    #      change the checkboxes after hitting save 
-      
+    Then the "edit-follow" checkbox should be checked
+      And the "edit-expanded" checkbox should be checked
+    When I uncheck the box "edit-follow"
+      And I uncheck the box "edit-expanded"
+    When I press "edit-return"
+      And I wait for the Panels IPE to deactivate
+      And I press "Save"
+      And I customize this page with the Panels IPE
+      And I click "Settings" in the "Boxton Content" region
+    Then the "edit-follow" checkbox should not be checked
+      And the "edit-expanded" checkbox should not be checked
+
