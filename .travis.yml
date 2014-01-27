@@ -37,8 +37,10 @@ install:
 
   # Test the current branch
   - cd drupal
-  - drush make --prepare-install profiles/panopoly/drupal-org-core.make --yes
-  - drush make --no-core profiles/panopoly/drupal-org.make --yes
+  - drush make --yes profiles/panopoly/drupal-org-core.make --prepare-install
+  - drush make --yes profiles/panopoly/drupal-org.make --no-core --contrib-destination=profiles/panopoly
+  - ls profiles/panopoly/modules/contrib
+  - ls profiles/panopoly/themes
   - drush dl panopoly_demo
   - cd ../
 
