@@ -39,7 +39,7 @@ install:
   - cd drupal
   - drush make --yes profiles/panopoly/drupal-org-core.make --prepare-install
   - drush make --yes profiles/panopoly/drupal-org.make --no-core --contrib-destination=profiles/panopoly
-  - drush dl panopoly_demo
+  - drush dl panopoly_demo-1.x-dev
   - cd ../
 
   # Download an old version to test upgrading from.
@@ -64,7 +64,7 @@ install:
 before_script:
 
   # Do the site install (either the current revision or old for the upgrade).
-  - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd panopoly-$UPGRADE; fi
+  - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd panopoly-$UPGRADE; drush dl panopoly_demo-$UPDATE; fi
   - php `pear config-get php_dir`/drush/drush.php si panopoly --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Panopoly" --yes
   - cd ../drupal
 
