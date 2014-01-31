@@ -64,7 +64,7 @@ install:
 before_script:
 
   # Do the site install (either the current revision or old for the upgrade).
-  - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd panopoly-$UPGRADE; drush dl panopoly_demo-$UPDATE; fi
+  - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd panopoly-$UPGRADE; drush dl panopoly_demo-$UPGRADE; fi
   - php `pear config-get php_dir`/drush/drush.php si panopoly --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Panopoly" --yes
   - cd ../drupal
 
