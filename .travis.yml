@@ -87,6 +87,4 @@ script:
 notifications:
   email:
     - panopoly-ci@googlegroups.com
-    - dsnopek@gmail.com
-  irc: "irc.freenode.net#panopoly"
-
+  irc: "chat.freenode.net#panopoly"
