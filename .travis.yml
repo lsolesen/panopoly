@@ -20,7 +20,7 @@ install:
   - "mysql -e 'create database drupal;'"
 
   - pear channel-discover pear.drush.org
-  - pear install drush/drush-6.1.0.0
+  - pear install drush/drush-6.1.0
   - phpenv rehash
 
   # Build Behat dependencies
