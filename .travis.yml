@@ -88,5 +88,5 @@ notifications:
   email:
     - panopoly-ci@googlegroups.com
     - dsnopek@gmail.com
-  irc: "chat.freenode.net#panopoly"
+  irc: "irc.freenode.net#panopoly"
 
