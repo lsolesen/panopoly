@@ -20,6 +20,7 @@ install:
   - "mysql -e 'create database drupal;'"
 
   # Install latest Drush 6.
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - composer global require drush/drush:6.*
 
   # Build Behat dependencies
