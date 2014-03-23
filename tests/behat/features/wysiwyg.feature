@@ -93,7 +93,7 @@ Feature: Use rich text editor
     # Save the whole node.
     When I press "Publish"
     # See the image on the view page.
-    Then I should see the "iframe" element in the "Bryant Content" region
+    Then I should see the "img" element in the "Bryant Content" region
 
   @api @javascript
   Scenario: Add a Vimeo video
@@ -113,4 +113,4 @@ Feature: Use rich text editor
     # Save the whole node.
     When I press "Publish"
     # See the image on the view page.
-    Then I should see the "iframe" element in the "Bryant Content" region
+    Then I should see the "img" element in the "Bryant Content" region
