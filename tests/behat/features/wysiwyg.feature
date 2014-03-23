@@ -10,24 +10,24 @@ Feature: Use rich text editor
         | Title                | Testing WYSIWYG       |
         | body[und][0][format] | panopoly_wysiwyg_text |
 
-  @api @javascript
-  Scenario Outline: Format text in the editor (first toolbar)
-    When I click the "<Action>" button in the "edit-body-und-0-value" WYSIWYG editor
-      And I type "Testing body" in the "edit-body-und-0-value" WYSIWYG editor
-      And I press "Publish"
-    Then I should see "Testing body" in the "<Element>" element with the "<Property>" CSS property set to "<Value>" in the "Bryant Content" region
-
-    Examples:
-      | Action                        | Element    | Property        | Value        |
-      | Bold                          | strong     |                 |              |
-      | Italic                        | em         |                 |              |
-      | Strikethrough                 | span       | text-decoration | line-through |
-      | Insert/Remove Bulleted List   | ul > li    |                 |              |
-      | Insert/Remove Numbered List   | ol > li    |                 |              |
-      | Block Quote                   | blockquote |                 |              |
-      | Align Left                    | p          | text-align      | left         |
-      | Align Center                  | p          | text-align      | center       |
-      | Align Right                   | p          | text-align      | right        |
+#  @api @javascript
+#  Scenario Outline: Format text in the editor (first toolbar)
+#    When I click the "<Action>" button in the "edit-body-und-0-value" WYSIWYG editor
+#      And I type "Testing body" in the "edit-body-und-0-value" WYSIWYG editor
+#      And I press "Publish"
+#    Then I should see "Testing body" in the "<Element>" element with the "<Property>" CSS property set to "<Value>" in the "Bryant Content" region
+#
+#    Examples:
+#      | Action                        | Element    | Property        | Value        |
+#      | Bold                          | strong     |                 |              |
+#      | Italic                        | em         |                 |              |
+#      | Strikethrough                 | span       | text-decoration | line-through |
+#      | Insert/Remove Bulleted List   | ul > li    |                 |              |
+#      | Insert/Remove Numbered List   | ol > li    |                 |              |
+#      | Block Quote                   | blockquote |                 |              |
+#      | Align Left                    | p          | text-align      | left         |
+#      | Align Center                  | p          | text-align      | center       |
+#      | Align Right                   | p          | text-align      | right        |
 
 #  @api @javascript @wip
 #  Scenario Outline: Format text in the editor (advanced toolbar)
@@ -51,6 +51,7 @@ Feature: Use rich text editor
       And I switch to the frame "mediaBrowser"
       And I attach the file "panopoly.png" to "files[upload]"
       And I press "Next"
+      And I wait 10 seconds
     Then I should see "Destination"
     # Select the destination (public/private files).
     When I select the radio button "Public local files served by the webserver."
