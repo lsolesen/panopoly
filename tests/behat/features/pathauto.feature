@@ -26,7 +26,7 @@ Feature: Test pathauto
       And I press "Save"
     Then the url should match "testing-title"
     Given I go to "completely-other-title"
-    Then the response status code should be 200
+    Then the response status code should be 404
   
   @api
   Scenario: My own permalink should be kept even if changing title
@@ -42,6 +42,34 @@ Feature: Test pathauto
     Then the url should match "my-custom-permalink"
     Given I go to "my-custom-permalink"
     Then the response status code should be 200
+    # Original Permalink should forward to new permalink
     Given I go to "testing-title"
     Then the response status code should be 301
- 
+
+  @api @javascript
+  Scenario: Retain alias when using IPE - Issue #2239847
+    Given I am logged in as a user with the "administrator" role
+    And Panopoly magic live previews are disabled
+    When I visit "/node/add/panopoly-page"
+    And I fill in the following:
+      | Title               | Testing title           |
+      | Permalink           | my-ipe-custom-permalink |
+      | Editor              | plain_text              |
+      | body[und][0][value] | Testing body            |
+    And I press "Publish"
+    Then the "h1" element should contain "Testing title"
+    Then the url should match "my-ipe-custom-permalink"
+    When I customize this page with the Panels IPE
+      And I click "Add new pane"
+      And I click "Add text"
+    Then I should see "Configure new Add text"
+    When I fill in the following:
+      | Title   | Text widget title       |
+      | Editor  | plain_text              |
+      | Text    | Testing text body field |
+      And I press "edit-return"
+      And I press "Save as custom"
+      And I wait for the Panels IPE to deactivate
+    Then the url should match "my-ipe-custom-permalink"
+    When I click "View" in the "Tabs" region
+    Then the url should match "my-ipe-custom-permalink"
