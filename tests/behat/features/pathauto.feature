@@ -27,7 +27,7 @@ Feature: Test pathauto
     Then the url should match "testing-title"
     Given I go to "completely-other-title"
     Then the response status code should be 404
-  
+
   @api
   Scenario: My own permalink should be kept even if changing title
     When I click "Edit" in the "Tabs" region
