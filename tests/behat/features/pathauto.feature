@@ -52,12 +52,12 @@ Feature: Test pathauto
     And Panopoly magic live previews are disabled
     When I visit "/node/add/panopoly-page"
     And I fill in the following:
-      | Title               | Testing title           |
+      | Title               | Testing IPE title       |
       | Permalink           | my-ipe-custom-permalink |
       | Editor              | plain_text              |
       | body[und][0][value] | Testing body            |
     And I press "Publish"
-    Then the "h1" element should contain "Testing title"
+    Then the "h1" element should contain "Testing IPE title"
     Then the url should match "my-ipe-custom-permalink"
     When I customize this page with the Panels IPE
       And I click "Add new pane"
@@ -71,5 +71,7 @@ Feature: Test pathauto
       And I press "Save as custom"
       And I wait for the Panels IPE to deactivate
     Then the url should match "my-ipe-custom-permalink"
-    When I click "View" in the "Tabs" region
+    When I reload the page
     Then the url should match "my-ipe-custom-permalink"
+    When I click "Edit" in the "Tabs" region
+    Then the "path[alias]" field should contain "my-ipe-custom-permalink"
